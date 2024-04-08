@@ -28,7 +28,7 @@ public final class Graph {
 
 
     public double generateK() {
-        return 1.0 - n3 * 0.02 - n4 * 0.005 - 0.25;
+        return 1.0 - n3 * 0.01 - n4 * 0.01 - 0.3;
     }
 
 
