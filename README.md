@@ -8,6 +8,10 @@ mvn javafx:run
 
 
 ## Пункт 1:
+```
+git checkout ef89e8f
+mvn javafx:run
+```
 ![null](p1_0.jpg)
 ![null](p1_1.jpg)
 
