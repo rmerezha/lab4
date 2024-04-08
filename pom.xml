@@ -24,7 +24,7 @@
   </dependencies>
 
   <build>
-    <finalName>lab3</finalName>
+    <finalName>lab4</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
 
