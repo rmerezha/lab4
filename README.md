@@ -22,3 +22,8 @@ mvn javafx:run
 ```
 ![null](p2_0.jpg)
 ![null](p2_1.jpg)
+
+## Пункт 3:
+
+![null](p3_0.jpg)
+![null](p3_1.jpg)
