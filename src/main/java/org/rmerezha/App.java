@@ -46,22 +46,31 @@ public class App extends Application {
 
         int i = sc.nextInt();
 
+        boolean isOriented = i == 1;
+
         List<Point> points = drawCircles();
         Graph graph = new Graph(3414);
         double[][] matrix = graph.generatedAdjacencyMatrix(NUM_CIRCLES);
 
-        if (i == 1) {
+        if (isOriented) {
             drawOrientedGraphs(matrix, points);
-        } else if (i == 0) {
-            drawNonOrientedGraphs(matrix, points);
         } else {
-            throw new IllegalArgumentException();
+            drawNonOrientedGraphs(matrix, points);
         }
 
         int size = matrix.length;
-        for (int j = 0; i < size; i++) {
-            System.out.println(Arrays.toString(matrix[i]));
+        for (int j = 0; j < size; j++) {
+            System.out.println(Arrays.toString(matrix[j]));
         }
+        System.out.println();
+
+        GraphUtils.calculateVertexDegrees(matrix, isOriented);
+        if (isOriented) {
+            GraphUtils.calculateHalfDegrees(matrix);
+        }
+        GraphUtils.isRegularGraph(matrix, isOriented);
+        GraphUtils.findHangingAndIsolatedVertices(matrix, isOriented);
+
 
         setDefaultSettings(stage);
         stage.show();
