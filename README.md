@@ -16,6 +16,9 @@ mvn javafx:run
 ![null](p1_1.jpg)
 
 ## Пункт 2:
-
+```
+git checkout 4cd019d
+mvn javafx:run
+```
 ![null](p2_0.jpg)
 ![null](p2_1.jpg)
