@@ -41,22 +41,13 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
 
-        System.out.println("Enter 0 or 1:");
-        Scanner sc = new Scanner(System.in);
-
-        int i = sc.nextInt();
-
-        boolean isOriented = i == 1;
 
         List<Point> points = drawCircles();
         Graph graph = new Graph(3414);
         double[][] matrix = graph.generatedAdjacencyMatrix(NUM_CIRCLES);
+        drawOrientedGraphs(matrix, points);
 
-        if (isOriented) {
-            drawOrientedGraphs(matrix, points);
-        } else {
-            drawNonOrientedGraphs(matrix, points);
-        }
+
 
         int size = matrix.length;
         for (int j = 0; j < size; j++) {
@@ -64,12 +55,16 @@ public class App extends Application {
         }
         System.out.println();
 
-        GraphUtils.calculateVertexDegrees(matrix, isOriented);
-        if (isOriented) {
-            GraphUtils.calculateHalfDegrees(matrix);
-        }
-        GraphUtils.isRegularGraph(matrix, isOriented);
-        GraphUtils.findHangingAndIsolatedVertices(matrix, isOriented);
+
+        GraphUtils.calculateHalfDegrees(matrix);
+        GraphUtils.findPathsLength2(matrix);
+        GraphUtils.findPathsLength3(matrix);
+        System.out.println("\nReachability matrix:");
+        GraphUtils.findAndPrintReachabilityMatrix(matrix);
+        System.out.println("\nStrong connectivity matrix:");
+        GraphUtils.findAndPrintStrongConnectivityMatrix(matrix);
+        System.out.println("\nCondensation graph:");
+        drawOrientedGraphs(GraphUtils.findCondensationGraph(matrix), points);
 
 
         setDefaultSettings(stage);
