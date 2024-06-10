@@ -30,3 +30,10 @@ mvn javafx:run
 ```
 ![null](p3_0.jpg)
 ![null](p3_1.jpg)
+
+## Пункт 4:
+```
+git checkout 60035dd
+mvn javafx:run 
+```
+![null](p4.jpg)
